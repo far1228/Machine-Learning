@@ -2,6 +2,11 @@
 
 Repositori ini berisi pipeline lengkap untuk proyek Machine Learning yang berfokus pada pemrosesan data medis berbentuk tabular menjadi teks naratif, melakukan anonimisasi dengan pendekatan hybrid, melakukan preprocessing NLP, melakukan weak labelling berbasis Quasi-Identifier (QI), melakukan ekstraksi fitur teks, serta membangun model machine learning dan deep learning untuk klasifikasi risiko. Seluruh tahapan disusun secara sistematis sehingga dapat direplikasi untuk keperluan akademik maupun eksperimen lanjutan.
 
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.12-orange)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+
 ## 1. Fitur Utama
 Proyek ini mencakup seluruh tahapan pemrosesan data teks secara end-to-end, antara lain:
 
