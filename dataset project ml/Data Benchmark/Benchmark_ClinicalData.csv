@@ -1,0 +1,7 @@
+﻿Fitur,Model,Train Accuracy,Test Accuracy,CV Mean,CV Std,Jumlah Fitur
+BoW_FS,Logistic Regression,1.0,1.0,1.0,0.0,172
+BIGRAM_FS,Logistic Regression,0.9968,0.9903,0.9797,0.0108,1000
+TFIDF_FS,Logistic Regression,0.987,0.9838,0.9748,0.0113,172
+BIGRAM_FS,Naive Bayes,0.9699,0.9545,0.9537,0.0157,1000
+TFIDF_FS,Naive Bayes,0.948,0.9481,0.9358,0.0103,172
+BoW_FS,Naive Bayes,0.9423,0.9188,0.9318,0.026,172

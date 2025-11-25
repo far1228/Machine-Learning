@@ -1,0 +1,7 @@
+﻿Model,Fitur,Total Data Uji,Jumlah Error,Persentase Error (%)
+Logistic Regression,BoW,308,0,0.0
+Logistic Regression,TFIDF,308,5,1.62
+Logistic Regression,BIGRAM,308,3,0.97
+Naive Bayes,BoW,308,25,8.12
+Naive Bayes,TFIDF,308,16,5.19
+Naive Bayes,BIGRAM,308,14,4.55
