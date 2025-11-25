@@ -129,3 +129,104 @@ Hasil ini menunjukkan bahwa pendekatan deep learning yang dituning dengan baik m
 ## 6. Dokumentasi Tambahan
 Penjelasan lengkap tentang metodologi, eksperimen, dan analisis dapat ditemukan pada laporan penelitian terkait. Repositori ini disusun agar mudah direplikasi untuk kebutuhan akademik dan penelitian lanjutan.
 
+## 7. Instalasi dan Setup Lingkungan
+
+Untuk menjalankan proyek ini, pastikan Anda sudah menginstal semua dependensi Python yang diperlukan.
+
+### 1. Menggunakan `requirements.txt`
+Pastikan Anda berada pada folder project, lalu jalankan:
+
+```
+pip install -r requirements.txt
+```
+
+Command tersebut akan menginstal seluruh library yang dibutuhkan proyek.
+
+---
+
+### 2. Menjalankan di PC / Laptop
+1. Pastikan Python 3.10+ sudah terinstal  
+2. Buka terminal atau CMD  
+3. Masuk ke direktori project:
+
+```
+cd path/ke/project
+```
+
+4. Instal semua dependensi:
+
+```
+pip install -r requirements.txt
+```
+
+5. Jalankan pipeline:
+
+```
+python scripts/run_full_pipeline.py
+```
+
+---
+
+### 3. Menjalankan di Google Colab
+
+Jika `requirements.txt` disimpan di Drive:
+
+```python
+from google.colab import drive
+drive.mount('/content/drive')
+
+!pip install -r "/content/drive/MyDrive/requirements.txt"
+```
+
+Jika `requirements.txt` ada di GitHub:
+
+```
+!pip install -r "https://raw.githubusercontent.com/username/repo/main/requirements.txt"
+```
+
+---
+
+### 4. Membuat Virtual Environment (Opsional)
+Agar library tidak bertabrakan:
+
+#### Windows:
+```
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+#### Mac/Linux:
+```
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+---
+
+### 5. Menjalankan Script Deep Learning
+Untuk menjalankan model deep learning saja:
+
+```
+python scripts/run_deep_learning.py
+```
+
+---
+
+### 6. Menjalankan Pipeline Lengkap
+```
+python scripts/run_full_pipeline.py
+```
+
+## 8. Penjelasan Singkat Library pada `requirements.txt`
+
+- **pandas, numpy** – manipulasi data tabular dan numerik  
+- **scikit-learn** – model ML klasik, fitur BoW/TF-IDF/Bigram  
+- **tensorflow, keras** – deep learning (RNN, LSTM, FT-LSTM)  
+- **torch, transformers, peft, accelerate** – model BERT dan LoRA  
+- **nltk, regex** – preprocessing NLP  
+- **tqdm** – progress bar  
+- **beautifulsoup4** – pembersihan teks tambahan  
+- **joblib, pickle5** – saving/loading model dan tokenizer  
+- **python-dateutil** – parsing tanggal  
