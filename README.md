@@ -46,6 +46,7 @@ Proyek ini mencakup seluruh tahapan pemrosesan data teks secara end-to-end, anta
   - RNN (Bidirectional)
   - LSTM (Bidirectional)
   - FT-LSTM (Fine-Tuned LSTM)
+  - Transfer Learning
   - LoRA-BERT (Fine-tuning parameter-efficient)
 
 - **Analisis Error**  
