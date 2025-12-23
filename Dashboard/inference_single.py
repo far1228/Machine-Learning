@@ -3,6 +3,7 @@
 # FINAL - Privacy Risk Inference (QI-based)
 # ============================================
 
+import os
 import joblib
 import numpy as np
 import torch
@@ -16,6 +17,12 @@ from peft import PeftModel
 from utils.preprocess import clean_text
 
 # ============================================
+# PATH FIX (INI SAJA YANG DITAMBAHKAN)
+# ============================================
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_DIR = os.path.join(BASE_DIR, "models")
+
+# ============================================
 # GLOBAL
 # ============================================
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -25,8 +32,8 @@ MAX_LEN = 150   # sesuai training LSTM
 # ============================================
 # LOAD LR (BEST MODEL)
 # ============================================
-tfidf = joblib.load("models/tfidf_vectorizer.pkl")
-lr_model = joblib.load("models/lr_model.pkl")
+tfidf = joblib.load(os.path.join(MODEL_DIR, "tfidf_vectorizer.pkl"))
+lr_model = joblib.load(os.path.join(MODEL_DIR, "lr_model.pkl"))
 
 # fitur saat TRAINING LR (1000 fitur)
 LR_FEATURES = lr_model.feature_names_in_
@@ -34,8 +41,8 @@ LR_FEATURES = lr_model.feature_names_in_
 # ============================================
 # LOAD LSTM (COMPARISON)
 # ============================================
-lstm_model = load_model("models/ft_lstm.h5")
-tokenizer_lstm = joblib.load("models/tokenizer_lstm.pkl")
+lstm_model = load_model(os.path.join(MODEL_DIR, "ft_lstm.h5"))
+tokenizer_lstm = joblib.load(os.path.join(MODEL_DIR, "tokenizer_lstm.pkl"))
 
 # ============================================
 # LOAD LoRA-BERT (COMPARISON)
@@ -51,8 +58,9 @@ _base_bert = AutoModelForSequenceClassification.from_pretrained(
 
 bert_model = PeftModel.from_pretrained(
     _base_bert,
-    "models/lora_bert"
+    os.path.join(MODEL_DIR, "lora_bert")
 ).to(DEVICE)
+
 bert_model.eval()
 
 # ============================================
@@ -65,7 +73,6 @@ def predict_single(text: str, model_name: str = "BEST") -> str:
     if model_name == "BEST" or model_name == "TF-IDF + Logistic Regression":
         vec = tfidf.transform([text_clean])
 
-        # 🔑 FIX UTAMA: samakan fitur ke training
         vec_df = pd.DataFrame(
             vec.toarray(),
             columns=tfidf.get_feature_names_out()
